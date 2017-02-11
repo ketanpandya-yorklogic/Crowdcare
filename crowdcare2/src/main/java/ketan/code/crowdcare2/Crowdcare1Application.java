@@ -10,10 +10,9 @@ public class Crowdcare1Application {
 	
 	public static void main(String[] args) {
 		String titles[] = getInput();
-		Displayer disp = new Displayer();
-		
+	
 		for (String title: titles){
-			new SearchThread(title, disp).start();
+			new SearchThread(title).start();
 		}
 	}
 	
@@ -36,21 +35,16 @@ public class Crowdcare1Application {
 
 class SearchThread extends Thread{
 	private final String title;
-	private final Displayer disp;
 	
-	SearchThread(String title, Displayer disp){
+	SearchThread(String title){
 		this.title=title;
-		this.disp=disp;
 	}
 	public void run()
 	{
 		Search search = new Search(title);
-		disp.printResults(search.doWikiQuery(), title);
+		printResults(search.doWikiQuery(), title);
 	}
-}
-
-class Displayer{
-	synchronized void printResults(ArrayList<SearchResult> res, String title){
+	void printResults(ArrayList<SearchResult> res, String title){
 		System.out.println("Search result for --> "+title);
 		for (SearchResult robj:res){
 		       System.out.printf("Title:[%s] URL:[%s]%n",
@@ -58,6 +52,9 @@ class Displayer{
 		}
  	}
 }
+
+
+
 
 
 
