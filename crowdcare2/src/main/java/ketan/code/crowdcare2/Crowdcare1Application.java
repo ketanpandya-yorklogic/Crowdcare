@@ -13,7 +13,7 @@ public class Crowdcare1Application {
 		Displayer disp = new Displayer();
 		
 		for (String title: titles){
-			new SearchThread(title, disp).run();
+			new SearchThread(title, disp).start();
 		}
 	}
 	
