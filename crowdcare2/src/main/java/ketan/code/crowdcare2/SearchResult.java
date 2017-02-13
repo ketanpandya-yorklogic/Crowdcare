@@ -1,10 +1,10 @@
 package ketan.code.crowdcare2;
 
-class SearchResult{
+public class SearchResult{
 	final private String title;
 	final private String url;
 	
-	SearchResult(String title, String url){
+	public SearchResult(String title, String url){
 		this.title=title;
 		this.url=url;
 	}
