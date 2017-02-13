@@ -13,7 +13,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-class Search {
+public class Search {
 	private final static String pre_url="https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=%s&limit=3";
 	
 	private final String urlstr;
